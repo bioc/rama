@@ -1,0 +1,78 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Besag and Higdon}{Besag and
+  Higdon}{1999}]{bib:besag_higdon99}
+Besag, J. and D.~M. Higdon (1999).
+\newblock {B}ayesian analysis of agricultural field experiments (with
+  discussion).
+\newblock {\em Journal of the Royal Statistical Society, Series B\/}~{\em 61},
+  691--746.
+
+\bibitem[\protect\citeauthoryear{Box and Cox}{Box and
+  Cox}{1964}]{bib:box_cox64}
+Box, G. and D.~Cox (1964).
+\newblock An analysis of transformations.
+\newblock {\em Journal of the Royal Statistical Society\/}~{\em 26}, 211--252.
+
+\bibitem[\protect\citeauthoryear{Brooks}{Brooks}{1998}]{bib:brooks98}
+Brooks, S. (1998).
+\newblock Markov chain monte carlo and its application.
+\newblock {\em The Statistician\/}~{\em 47}, 69--100.
+
+\bibitem[\protect\citeauthoryear{Cui, Kerr, and Churchill}{Cui
+  et~al.}{2002}]{bib:cui02}
+Cui, X., M.~K. Kerr, and G.~A. Churchill (2002).
+\newblock Data transformations for c\uppercase{DNA} microarray data.
+\newblock Technical report, The Jackson Laboratory.
+
+\bibitem[\protect\citeauthoryear{Gelfand and Smith}{Gelfand and
+  Smith}{1990}]{bib:gelfand90}
+Gelfand, A.~E. and A.~F.~M. Smith (1990).
+\newblock Sampling-based approaches to calculating marginal densities.
+\newblock {\em Journal of the American Statistical Association\/}~{\em 85},
+  398--409.
+
+\bibitem[\protect\citeauthoryear{Gottardo, Raftery, Yeung, and
+  Bumgarner}{Gottardo et~al.}{2003}]{bib:gottardo2003b}
+Gottardo, R., A.~Raftery, K.~Yeung, and R.~Bumgarner (2003).
+\newblock Robust estimation of microarray intensities with replicates.
+\newblock Technical Report TR-438, Statistics Department, University of
+  Washington.
+
+\bibitem[\protect\citeauthoryear{Kerr, Martin, and Churchill}{Kerr
+  et~al.}{2000}]{bib:kerr00}
+Kerr, M., M.~Martin, and G.~Churchill (2000).
+\newblock Analysis of variance for gene expression microarray data.
+\newblock {\em Journal of {C}omputational {B}iology\/}~{\em 7}, 819--837.
+
+\bibitem[\protect\citeauthoryear{Lewin, Marshall, and Richardson}{Lewin
+  et~al.}{2003}]{bib:lewin03}
+Lewin, A., C.~Marshall, and S.~Richardson (2003).
+\newblock Bayesian hierarchical modelling of gene expression data.
+\newblock Technical report, Imperial College, London.
+
+\bibitem[\protect\citeauthoryear{Lindley and Smith}{Lindley and
+  Smith}{1972}]{bib:lindley72}
+Lindley, D.~V. and A.~F.~M. Smith (1972).
+\newblock Bayes estimates for the linear model.
+\newblock {\em Journal of the Royal Statistical Society\/}~{\em 34}, 1--41.
+
+\bibitem[\protect\citeauthoryear{Neal}{Neal}{2003}]{bib:radford03}
+Neal, R. (2003).
+\newblock Slice sampling.
+\newblock {\em The annals of statistics\/}~{\em 31\/}(3).
+
+\bibitem[\protect\citeauthoryear{Tukey}{Tukey}{1957}]{bib:tukey57}
+Tukey, J.~W. (1957).
+\newblock On the comparative anatomy of transformations.
+\newblock {\em Annals of Mathematical Statistics\/}~{\em 28}, 602--632.
+
+\bibitem[\protect\citeauthoryear{van't Wout, Lehrma, Mikheeva, O'Keeffe, Katze,
+  Bumgarner, Geiss, and Mullins}{van't Wout et~al.}{2003}]{bib:wout03}
+van't Wout, A.~B., G.~K. Lehrma, S.~A. Mikheeva, G.~C. O'Keeffe, M.~G. Katze,
+  R.~E. Bumgarner, G.~K. Geiss, and J.~I. Mullins (2003).
+\newblock Cellular gene expression upon human immunodeficiency virus type 1
+  infection of $\mathrm{CD4^+-T-Cell}$ lines.
+\newblock {\em Journal of {V}irology\/}~{\em 77\/}(2), 1392--1402.
+
+\end{thebibliography}

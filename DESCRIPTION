@@ -5,4 +5,4 @@ Author: Raphael Gottardo
 Description: Robust estimation of cDNA microarray intensities with replicates. The package uses a Bayesian hierarchical model for the robust estimation. Outliers are modeled explicitly using a t-distribution, and the model also addresses classical issues such as design effects, normalization, transformation, and nonconstant variance.
 Maintainer: Raphael Gottardo <raph@stat.washington.edu>
 License: GPL version 2 or newer
-Packaged: Mon Mar  8 15:45:08 2004; raph
+Packaged: Fri Sep 24 21:15:28 2004; raph
