@@ -9,7 +9,7 @@ weight.plot<-function(mcmc.obj,coordinate,array=1)
     if(class(mcmc.obj)!="mcmc")
       stop("'mcmc.obj' should be of type 'mcmc'" , call. = TRUE)
     
-    ordered.weight<-reorder.row(cbind(coordinate,mcmc.obj$w[,array]))
+    ordered.weight<-arrange.row(cbind(coordinate,mcmc.obj$w[,array]))
 
 ### Number of rows and columns
     n1<-max(coordinate[,1]+1)

@@ -1,7 +1,7 @@
 \name{fit.model}
 \alias{fit.model}
 \title{Robust estimation of microarray intensities with replicates}
-\usage{fit.model(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=FALSE)
+\usage{fit.model(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=TRUE)
      }
 \description{
   Estimate the log transformed intensities of each sample of a replicated

@@ -29,7 +29,7 @@ Raphael Gottardo, Adrian E. Raftery, Ka Yee Yeung, and Roger Bumgarner
 Department of Statistics, University of Washington, Box 354322, Seattle, WA 98195-4322} 
 }
 \seealso{
-  \code{reorder.row}
+  \code{arrange.row}
 }
 \examples{
 data(hiv)
