@@ -1,0 +1,8 @@
+fit.model               Robust estimation of microarray intensities
+                        with replicates
+est.shift               Estimate the shift used in the log
+                        transformation
+is.row.na               Test if a matrix contains missing values
+mat.mean                Compute the mean and standard deviation of
+                        each row in a data matrix
+

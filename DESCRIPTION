@@ -1,0 +1,9 @@
+Package: rama
+Title: This package contains several functions for the analysis of microarray experiments. 
+Version: 0.2
+Author: Raphael Gottardo
+Description: This package contains functions to estimate the expression levels of each gene of a microarray experiment.Robustness in the estimation is achieved by using an explicite t-distribution.  
+Maintainer: Raphael Gottardo <raph@stat.washington.edu>
+License: GPL version 2 or newer
+
+
