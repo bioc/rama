@@ -43,7 +43,7 @@ fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.o
 
     if(length(mcmc.obj)>0)
       {
-          if (!inherits(mcmc.obj, "mcmc"))
+        if(class(mcmc.obj)!="mcmc")
           stop("'mcmc.obj' should be of type 'mcmc'" , call. = TRUE)
 
 
