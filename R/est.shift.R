@@ -8,8 +8,8 @@ est.shift<-function(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye
     indf2<-is.row.na(sample2)
     sample1<-as.matrix(sample1[indf1 & indf2,])
     sample2<-as.matrix(sample2[indf1 & indf2,])
-    n<-dim(sample1) 
-    
+    n<-dim(sample1)
+
     if(dye.swap==TRUE)
       {
         if(length(nb.col1)==0)
@@ -18,37 +18,37 @@ est.shift<-function(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye
           stop("nb.col1 should be at least 0 and at most n" , call. = TRUE)
       }
     else ## just set a value for the code to run
-      nb.col1<-n[2]/2 
-    
-    
+      nb.col1<-n[2]/2
+
+
 
     vec1<-as.double(t(sample1))
     vec1[is.finite(vec1)==FALSE]<- -9999999
     vec2<-as.double(t(sample2))
     vec2[is.finite(vec2)==FALSE]<- -9999999
-    
+
     df.choice<-c(1:10,seq(20,100,10))
     df.in<-rep(100,n[2])
     w.in<-rep(1,n[1]*n[2])
-        
-    
+
+
     ## Minimum shift to make all the data >0
     m1<-max(0,-min(vec1)+0.01)
     m2<-max(0,-min(vec2)+0.01)
-    
-    
+
+
     if(length(mcmc.obj)>0)
       {
         if(class(mcmc.obj)!="mcmc.shift")
           stop("'mcmc.obj' should be of type 'mcmc.shift'" , call. = TRUE)
-        
+
         n.iter<-length(mcmc.obj$mu)
 
         lambda.eps1<-mcmc.obj$lambda.eps1[n.iter]
         lambda.eps2<-mcmc.obj$lambda.eps2[n.iter]
         lambda.gamma1<-mcmc.obj$lambda.gamma1[n.iter]
         lambda.gamma2<-mcmc.obj$lambda.gamma2[n.iter]
-        
+
         rho<-mcmc.obj$rho[n.iter]
 
         mu<-mcmc.obj$mu[n.iter]
@@ -89,23 +89,23 @@ est.shift<-function(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye
             lambda.eps1<-1.
             lambda.eps2<-1.
           }
-        
+
         lambda.gamma1<-0.5
-        lambda.gamma2<-0.5        
+        lambda.gamma2<-0.5
         rho<-0
-        
+
       }
 
 
-    
+
 ### Main code linked to a c function
-        
-        
+
+
     if(all.out==TRUE)
       length<-(B-min.iter)/batch
     else
-      length<-1 
-   
+      length<-1
+
     obj<-.C("R_link_mcmc_shift",
             vec1,
             vec2,
@@ -147,7 +147,7 @@ est.shift<-function(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye
             lambda.gamma2=double(length),
             as.integer(min.iter),
             as.integer(batch),
-            as.integer(all.out))
+            as.integer(all.out), PACKAGE="rama")
 
     new.mcmc<-list(gamma1=t(matrix(obj$gamma1,length,n[1],byrow=TRUE)),
                    gamma2=t(matrix(obj$gamma2,length,n[1],byrow=TRUE)),
@@ -156,7 +156,7 @@ est.shift<-function(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye
                    lambda.eps2=obj$lambda.eps2,
                    lambda.gamma1=obj$lambda.gamma1,lambda.gamma2=obj$lambda.gamma2,rho=obj$rho,
                    shift=obj$shift,eta=t(matrix(obj$eta,length,n[2],byrow=TRUE)))
-    
+
 ### Give it the right class
     class(new.mcmc)<-"mcmc.shift"
 
