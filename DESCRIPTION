@@ -10,5 +10,4 @@ Description: Robust estimation of cDNA microarray intensities with
         nonconstant variance.
 Maintainer: Raphael Gottardo <raph@stat.washington.edu>
 License: GPL version 2 or newer
-Packaged: Fri Sep 24 21:15:28 2004; raph
 
