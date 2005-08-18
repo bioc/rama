@@ -6,10 +6,9 @@
     (LaTeX-add-labels
      "tab:data_format")
     (TeX-run-style-hooks
+     "Sweave"
+     "chicago"
      "hyperref"
-     "natbib"
-     "authoryear"
-     "round"
      "graphicx"
      "amsmath"
      "epsfig"
