@@ -52,7 +52,7 @@ void ex_R_link_mcmc(double *data_vec1, double *data_vec2,
   data2=dmatrix(*n1, *n2);  
   vec_mat(data_vec2,n1,n2,data2);
   
-  printf("\n\n The mcmc is starting! \n\n");
+
   
   mcmc(data1, data2, n1, n2, nb_col1,
        B, dye_swap,
@@ -161,10 +161,10 @@ void mcmc(double **data1,double **data2, int *n1, int *n2, int *nb_col1,
     {
       
 
-      if(((k+1)*100)%(10**B)==0)
-	{
-	  printf("%d percent completed \n",(((k+1)*100)/(*B)));
-	}
+/*       if(((k+1)*100)%(10**B)==0) */
+/* 	{ */
+/* 	  printf("%d percent completed \n",(((k+1)*100)/(*B))); */
+/* 	} */
       
       
       /** Update the gamma's **/

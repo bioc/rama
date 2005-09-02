@@ -1,7 +1,7 @@
 \name{fit.model}
 \alias{fit.model}
 \title{Robust estimation of microarray intensities with replicates}
-\usage{fit.model(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=TRUE)
+\usage{fit.model(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=FALSE,ci=0.95)
      }
 \description{
   Estimate the log transformed intensities of each sample of a replicated
@@ -19,7 +19,8 @@
     The length of the burn-in period in the MCMC algorithm.\code{min.iter} should be less than
     B.
   }
-  \item{batch}{The thinning value to be used in the MCMC. Only every \code{batch}-th iteration will be stored.}
+  \item{batch}{The thinning value to be used in the MCMC. Only every
+    \code{batch}-th iteration will be stored.}
   \item{mcmc.obj}{An object of type mcmc, as returned by \code{fit.model}. \code{mcmc.obj} is used to initialized the MCMC.
     If no \code{mcmc.obj}, the MCMC is initialized to the least squares estimates.}
   \item{shift}{The shift to be used in the log transformation. If
@@ -32,6 +33,8 @@
   \item{all.out}{A logical value indicating if all the parameters
     should be outputted. If \code{all.out} is FALSE, only the posterior
     mean is outputted. This could be used to save memory. }
+  \item{ci}{A number between 0 and 1 corresponding to the level used
+    when computing log ratio credible intervals. If \code{all.out} is FALSE, this option is ignored. }
 }
 \value{
   An object of type \code{mcmc} containing the sampled values from the
@@ -48,6 +51,10 @@
     corresponding gene effect in sample 1.}
   \item{gamma2}{A matrix, each row contains the sampled values from the
     corresponding gene effect in sample 1.}
+  \item{q.low}{A vector containing the lower bounds for the log ratio
+    credible intervals, i.e. the credible intervals for gamma1-gamma2.}
+  \item{q.up}{A vector containing the upper bounds for the log ratio
+    credible intervals, i.e. the credible intervals for gamma1-gamma2.}
   \item{lambda.gamma1}{
     A vector containing the sampled values for the precision of the gene
     effect prior in sample 1.}

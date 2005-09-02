@@ -1,4 +1,4 @@
-fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL, dye.swap=FALSE, nb.col1=NULL, all.out=TRUE)
+fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL, dye.swap=FALSE, nb.col1=NULL, all.out=FALSE,ci=0.95)
   {
 
 
@@ -37,7 +37,7 @@ fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.o
         m1<-max(0,-min(vec1)+0.01)
         m2<-max(0,-min(vec2)+0.01)
         shift<-max(m1,m2)
-        mcmc.obj.shift<-est.shift(sample1,sample2,B=50000,min.iter=10000,batch=40,mcmc.obj=NULL,dye.swap=dye.swap,nb.col1=nb.col1)
+        mcmc.obj.shift<-est.shift(sample1,sample2,B=2000,min.iter=1000,batch=10,mcmc.obj=NULL,dye.swap=dye.swap,nb.col1=nb.col1)
         shift<-mean(mcmc.obj.shift$shift)
       }
 
@@ -172,11 +172,32 @@ fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.o
             as.integer(min.iter),
             as.integer(batch),
             as.integer(all.out), PACKAGE="rama")
-
-
+    
+    gamma1<-t(matrix(obj$gamma1,length,n[1],byrow=TRUE))
+    gamma2<-t(matrix(obj$gamma2,length,n[1],byrow=TRUE))
+    
+    if(all.out==TRUE)
+      {
+        q.low<-rep(0,n[1])
+        q.up<-rep(0,n[1])
+        
+        for(i in 1:(n[1]))
+          {
+            q.low[i]<-quantile(gamma1[i,]-gamma2[i,],probs=(1.-ci)/2)
+            q.up[i]<-quantile(gamma1[i,]-gamma2[i,],probs=1.-(1.-ci)/2)
+          }
+        
+      }
+    else
+      {
+        q.low<-NULL
+        q.up<-NULL
+      }
+    
 ### Create a new object
-    new.mcmc<-list(gamma1=t(matrix(obj$gamma1,length,n[1],byrow=TRUE)),
-                   gamma2=t(matrix(obj$gamma2,length,n[1],byrow=TRUE)),
+    new.mcmc<-list(gamma1=gamma1,
+                   gamma2=gamma2,
+                   q.low=q.low,q.up=q.up,
                    mu=obj$mu, beta2=obj$beta2, alpha2=obj$alpha2,delta22=obj$delta22,
                    lambda.eps1=t(matrix(obj$lambda.eps1,length,n[1],byrow=TRUE)),
                    lambda.eps2=t(matrix(obj$lambda.eps2,length,n[1],byrow=TRUE)),
@@ -187,7 +208,7 @@ fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.o
                    a.eps=obj$a.eps,b.eps=obj$b.eps,shift=shift)
 ### Give it the right class
     class(new.mcmc)<-"mcmc"
-
+    
     return(new.mcmc)
 }
 

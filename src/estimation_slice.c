@@ -147,10 +147,10 @@ void mcmc_shift(double **data1,double **data2, int *n1, int *n2, int *nb_col1, i
   for(k=0;k<*B;k++)
     {
       
-      if(((k+1)*100)%(10**B)==0)
-	{
-	  printf("%d percent completed \n",(((k+1)*100)/(*B)));
-	}
+/*       if(((k+1)*100)%(10**B)==0) */
+/* 	{ */
+/* 	  printf("%d percent completed \n",(((k+1)*100)/(*B))); */
+/* 	} */
       
       
 
