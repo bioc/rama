@@ -1,0 +1,12 @@
+RAMA Change Log File
+
+-09/01/2005
+Added an option to compute log ratio credible intervals
+
+-09/01/2005
+Changed the default number of iteration in fit.model
+
+-06/20/2005
+Set rho=0 in the estimation of the shift function. A value of rho
+different from zero could lead (in a few cases) to an extremely large
+estimated shift.
