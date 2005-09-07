@@ -8,6 +8,6 @@ Description: Robust estimation of cDNA microarray intensities with
         t-distribution, and the model also addresses classical issues
         such as design effects, normalization, transformation, and
         nonconstant variance.
-Maintainer: Raphael Gottardo <raph@stat.washington.edu>
+Maintainer: Raphael Gottardo <raph@stat.ubc.ca>
 License: GPL version 2 or newer
 

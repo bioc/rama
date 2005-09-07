@@ -1264,7 +1264,7 @@ double slice_sampling_shift2(double shift, double width, int m, double **data1, 
       else
       	R=shift_new;
       shift_new=runif(L,R);
-      //printf("(%f,%f,%f)\n",shift_new,L,R);
+      
     }
   
   return(shift_new);

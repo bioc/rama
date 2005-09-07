@@ -259,7 +259,8 @@ void mcmc_shift(double **data1,double **data2, int *n1, int *n2, int *nb_col1, i
 /* 	    } */
 /* 	} */
       *rho=0;
-      //*rho=slice_sampling_rho2(*rho, 0.01, 10, SSR1, SSR2, SS12, *n1**n2);
+      /* *rho=slice_sampling_rho2(*rho, 0.01, 10, SSR1, SSR2, SS12,
+       *n1**n2); */
 
 
       /** Up-date mu **/       

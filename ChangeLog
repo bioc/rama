@@ -1,5 +1,8 @@
 RAMA Change Log File
 
+-09/06/2005
+Removed C++ style comments
+
 -09/01/2005
 Added an option to compute log ratio credible intervals
 

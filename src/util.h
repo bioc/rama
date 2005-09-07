@@ -1,6 +1,5 @@
 #include <R.h>
 #include <Rmath.h>
-//#include "/usr/local/lib/R/include/R_ext/Applic.h"	/* Fortran routines */
 #include <float.h>
 
 
