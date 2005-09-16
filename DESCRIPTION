@@ -10,4 +10,4 @@ Description: Robust estimation of cDNA microarray intensities with
         nonconstant variance.
 Maintainer: Raphael Gottardo <raph@stat.ubc.ca>
 License: GPL version 2 or newer
-
+biocViews: Microarray,TwoChannel,QualityControl,Preprocessing
