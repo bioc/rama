@@ -1,4 +1,5 @@
-est.shift<-function(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL, all.out=TRUE)
+est.shift<-function(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,
+                    all.out=TRUE ,verbose=FALSE)
   {
 
 
@@ -147,7 +148,9 @@ est.shift<-function(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye
             lambda.gamma2=double(length),
             as.integer(min.iter),
             as.integer(batch),
-            as.integer(all.out), PACKAGE="rama")
+            as.integer(all.out),
+            as.integer(verbose),
+            PACKAGE="rama")
 
     new.mcmc<-list(gamma1=t(matrix(obj$gamma1,length,n[1],byrow=TRUE)),
                    gamma2=t(matrix(obj$gamma2,length,n[1],byrow=TRUE)),

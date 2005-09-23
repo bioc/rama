@@ -19,7 +19,7 @@ void mcmc(double **data1,double **data2, int *n1, int *n2, int *nb_col1,
 	  double *rho, double *rho_p,
 	  double *lambda_gamma1, double *lambda_gamma2,
 	  double *lambda_gamma1_p, double *lambda_gamma2_p,
- 	  int *min_iter, int *batch, int *all_out);
+ 	  int *min_iter, int *batch, int *all_out, int *verbose);
 
 void ex_R_link_mcmc(double *data_vec1, double *data_vec2, 
 		    int *n1, int *n2, int *nb_col1, int *B, int *dye_swap,
@@ -40,7 +40,7 @@ void ex_R_link_mcmc(double *data_vec1, double *data_vec2,
 		    double *rho, double *rho_p,
 		    double *lambda_gamma1, double *lambda_gamma2,
 		    double *lambda_gamma1_p, double *lambda_gamma2_p,
-		    int *min_iter, int *batch, int* all_out)
+		    int *min_iter, int *batch, int* all_out, int *verbose)
 {
   
   double **data1;
@@ -52,7 +52,6 @@ void ex_R_link_mcmc(double *data_vec1, double *data_vec2,
   data2=dmatrix(*n1, *n2);  
   vec_mat(data_vec2,n1,n2,data2);
   
-
   
   mcmc(data1, data2, n1, n2, nb_col1,
        B, dye_swap,
@@ -71,7 +70,7 @@ void ex_R_link_mcmc(double *data_vec1, double *data_vec2,
        rho, rho_p, 
        lambda_gamma1, lambda_gamma2,
        lambda_gamma1_p, lambda_gamma2_p,
-       min_iter, batch, all_out);
+       min_iter, batch, all_out, verbose);
 
   PutRNGstate();
   
@@ -101,7 +100,7 @@ void mcmc(double **data1,double **data2, int *n1, int *n2, int *nb_col1,
 	  double *rho, double *rho_p,
 	  double *lambda_gamma1, double *lambda_gamma2,
 	  double *lambda_gamma1_p, double *lambda_gamma2_p,
-	  int *min_iter, int *batch, int *all_out)
+	  int *min_iter, int *batch, int *all_out, int *verbose)
 {
   int i,j,k;
   int count=0,count2=0;
@@ -156,15 +155,16 @@ void mcmc(double **data1,double **data2, int *n1, int *n2, int *nb_col1,
   mu1=dvector(1,0);
   mu2=dvector(1,0);
   
+  if(*verbose==1)
+    printf("--- Model fitting has started --- \n");
   
   for(k=0;k<*B;k++)
-    {
+    { 
       
-
-/*       if(((k+1)*100)%(10**B)==0) */
-/* 	{ */
-/* 	  printf("%d percent completed \n",(((k+1)*100)/(*B))); */
-/* 	} */
+      if(*verbose==1 && ((k+1)*100)%(10**B)==0) 
+ 	{ 
+ 	  printf("%d percent completed \n",(((k+1)*100)/(*B))); 
+	}
       
       
       /** Update the gamma's **/

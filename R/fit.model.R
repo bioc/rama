@@ -1,4 +1,5 @@
-fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL, dye.swap=FALSE, nb.col1=NULL, all.out=FALSE,ci=0.95)
+fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL,
+                    dye.swap=FALSE, nb.col1=NULL, all.out=FALSE, ci=0.95,verbose=FALSE)
   {
 
 
@@ -37,7 +38,7 @@ fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.o
         m1<-max(0,-min(vec1)+0.01)
         m2<-max(0,-min(vec2)+0.01)
         shift<-max(m1,m2)
-        mcmc.obj.shift<-est.shift(sample1,sample2,B=2000,min.iter=1000,batch=10,mcmc.obj=NULL,dye.swap=dye.swap,nb.col1=nb.col1)
+        mcmc.obj.shift<-est.shift(sample1,sample2,B=2000,min.iter=1000,batch=10,mcmc.obj=NULL,dye.swap=dye.swap,nb.col1=nb.col1,verbose=verbose)
         shift<-mean(mcmc.obj.shift$shift)
       }
 
@@ -171,7 +172,8 @@ fit.model<-function(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.o
             lambda.gamma2=double(length),
             as.integer(min.iter),
             as.integer(batch),
-            as.integer(all.out), PACKAGE="rama")
+            as.integer(all.out), as.integer(verbose),
+            PACKAGE="rama")
     
     gamma1<-t(matrix(obj$gamma1,length,n[1],byrow=TRUE))
     gamma2<-t(matrix(obj$gamma2,length,n[1],byrow=TRUE))

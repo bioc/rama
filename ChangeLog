@@ -1,5 +1,8 @@
 RAMA Change Log File
 
+-09/22/2005 
+Added a verbose option to display the number of iterations. 
+
 -09/06/2005
 Removed C++ style comments
 

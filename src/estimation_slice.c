@@ -19,7 +19,7 @@ void mcmc_shift(double **data1,double **data2, int *n1, int *n2, int *nb_col1,
 		double *min_shift,
 		double *lambda_gamma1, double *lambda_gamma2,
 		double *lambda_gamma1_p, double *lambda_gamma2_p,
-		int *min_iter, int *batch, int *all_out);
+		int *min_iter, int *batch, int *all_out, int *verbose);
 
 double log_f_lambda_eps(double SSR1, double SSR2, double SS12, double rho, int n, double lambda_eps1, double lambda_eps2, double a_eps, double b_eps);
 void up_date_error_precisions_slice(double **data1, double **data2, int n1, int n2, int nb_col1, double shift, double mu, double alpha2, double beta2, double delta22, double *eta, double *gamma_1, double *gamma_2, double rho, double *lambda_eps1, double *lambda_eps2, double a_eps, double b_eps, double *w);
@@ -45,7 +45,7 @@ void R_link_mcmc_shift(double *data_vec1, double *data_vec2,
 		       double *min_shift,
 		       double *lambda_gamma1, double *lambda_gamma2,
 		       double *lambda_gamma1_p, double *lambda_gamma2_p,
-		       int *min_iter, int *batch, int *all_out)
+		       int *min_iter, int *batch, int *all_out, int *verbose)
 {
   
   double **data1;
@@ -75,7 +75,7 @@ void R_link_mcmc_shift(double *data_vec1, double *data_vec2,
 	     min_shift,
 	     lambda_gamma1, lambda_gamma2,
 	     lambda_gamma1_p, lambda_gamma2_p,
-	     min_iter, batch, all_out);
+	     min_iter, batch, all_out, verbose);
 
   PutRNGstate();
   
@@ -105,7 +105,7 @@ void mcmc_shift(double **data1,double **data2, int *n1, int *n2, int *nb_col1, i
 		double *min_shift,
 		double *lambda_gamma1, double *lambda_gamma2,
 		double *lambda_gamma1_p, double *lambda_gamma2_p,
-		int *min_iter, int *batch, int *all_out)
+		int *min_iter, int *batch, int *all_out, int *verbose)
 {
   int i,j,k;
   int count=0,count2=0;
@@ -144,13 +144,16 @@ void mcmc_shift(double **data1,double **data2, int *n1, int *n2, int *nb_col1, i
   mu2=dvector(1,0);
   
   
+  if(*verbose==1)
+    printf("--- Estimation of the shift has started --- \n");
+  
   for(k=0;k<*B;k++)
     {
       
-/*       if(((k+1)*100)%(10**B)==0) */
-/* 	{ */
-/* 	  printf("%d percent completed \n",(((k+1)*100)/(*B))); */
-/* 	} */
+      if(*verbose==1 && ((k+1)*100)%(10**B)==0)
+	{
+	  printf("%d percent completed \n",(((k+1)*100)/(*B)));
+	}
       
       
 

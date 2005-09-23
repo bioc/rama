@@ -1,7 +1,8 @@
 \name{fit.model}
 \alias{fit.model}
 \title{Robust estimation of microarray intensities with replicates}
-\usage{fit.model(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=FALSE,ci=0.95)
+\usage{fit.model(sample1,sample2,B=1000,min.iter=0,batch=10,shift=NULL,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=FALSE,ci=0.95,
+verbose=FALSE)
      }
 \description{
   Estimate the log transformed intensities of each sample of a replicated
@@ -34,7 +35,10 @@
     should be outputted. If \code{all.out} is FALSE, only the posterior
     mean is outputted. This could be used to save memory. }
   \item{ci}{A number between 0 and 1 corresponding to the level used
-    when computing log ratio credible intervals. If \code{all.out} is FALSE, this option is ignored. }
+    when computing log ratio credible intervals. If \code{all.out} is
+    FALSE, this option is ignored. }
+  \item{verbose}{A logical value indicating if
+    the current MCMC iteration number should be printed out.}
 }
 \value{
   An object of type \code{mcmc} containing the sampled values from the

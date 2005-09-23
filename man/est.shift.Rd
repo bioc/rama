@@ -1,7 +1,7 @@
 \name{est.shift}
 \alias{est.shift}
 \title{Estimate the shift used in the log transformation}
-\usage{est.shift(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=TRUE)}
+\usage{est.shift(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=TRUE,verbose=FALSE)}
 \description{
   Estimate the shift in the log transformation when fitting the
   Hierarchical model as in bayes.rob.
@@ -29,6 +29,8 @@
   \item{all.out}{A logical value indicating if all the parameters
     should be outputted. If \code{all.out} is FALSE, only the posterior
     mean is outputted. This could be used to save memory. }
+  \item{verbose}{A logical value indicating if
+    the current MCMC iteration number should be printed out.}
 }
 
 \value{
