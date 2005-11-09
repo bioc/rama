@@ -1,0 +1,3 @@
+useDynLib(rama)
+
+export(arrange.row, est.shift, fit.model, is.row.na, ls.effect, mat.mean, ratio.plot, weight.plot)
