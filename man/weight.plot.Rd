@@ -23,11 +23,10 @@
   correspond to an outlier.
 }
 
-}
 \references{Robust Estimation of cDNA Microarray Intensities with Replicates
 Raphael Gottardo, Adrian E. Raftery, Ka Yee Yeung, and Roger Bumgarner
 Department of Statistics, University of Washington, Box 354322, Seattle, WA 98195-4322} 
-}
+
 \seealso{
   \code{arrange.row}
 }

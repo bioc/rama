@@ -9,8 +9,8 @@ hiv                     Cellular gene expression upon human
 is.row.na               Test if a matrix contains missing values
 ls.effect               Compute the least squares estimates of the all
                         the effects of the general model.
-mat.mean                Compute the mean and standard deviation of
-                        each row in a data matrix
+mat.mean                Compute the mean and standard deviation of each
+                        row in a data matrix
 ratio.plot              Plot the estimated log ratios against the
                         overall intensities
 weight.plot             Plot the weights of a given array using the

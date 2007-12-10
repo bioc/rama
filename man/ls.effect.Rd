@@ -40,7 +40,7 @@ ls.effect(sample1,sample2,dye.swap=FALSE,nb.col1=NULL)
 \references{Robust Estimation of cDNA Microarray Intensities with Replicates
   Raphael Gottardo, Adrian E. Raftery, Ka Yee Yeung, and Roger Bumgarner
   Department of Statistics, University of Washington, Box 354322, Seattle, WA 98195-4322} 
-}
+
 \seealso{
   \code{fit.model}
 }
