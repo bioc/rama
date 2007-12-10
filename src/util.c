@@ -536,88 +536,7 @@ double dmax(double a, double b)
     return(b);
   else
     return(a); 
-}
-
-
-void qr_solve(double **x, int *n1, double ** y, double **coef)
-/* Translation of the R function qr.solve into pure C
-   NB We have to transpose the matrices since the ordering of an array is different in Fortran
-   NB2 We have to copy x to avoid it being overwritten.
-*/
-{
-    int i,j, info = 0, rank, *pivot, n, p;
-    char *vmax;
-    double tol = 1.0E-7, *qraux, *work;
-    double * xt, *yt, *coeft;
-
-    qraux = dvector(*n1,0);
-    pivot = ivector(*n1,0);
-    work  = dvector(2*(*n1),0);
-    
-    for(i = 0; i < *n1; i++)
-        pivot[i] = i+1;
-
-    /** Copy the matrix by column **/
-    xt = dvector((*n1)*(*n1),0);
-    for(i=0;i<*n1;i++)
-      for(j=0;j<*n1;j++)
-	xt[i*(*n1)+j]=x[j][i];
-
-
-    n = *n1;
-    p = *n1;
-
-    F77_CALL(dqrdc2)(xt, &n, &n, &p, &tol, &rank,qraux, pivot, work);
-
-    if (rank != p)
-        error("Singular matrix in qr_solve\n");
-
- 
-    coeft=dvector((*n1)*(*n1),0);
-    
-    /** Copy the matrix by column **/
-    yt = dvector((*n1)*(*n1),0);
-    for(i=0;i<*n1;i++)
-      for(j=0;j<*n1;j++)
-	yt[i*(*n1)+j]=y[j][i];
-
-
-    F77_CALL(dqrcf)(xt, &n, &rank, qraux,yt, &n, coeft, &info);
-
-    /** Put back into a matrix **/
-    for(i=0;i<*n1;i++)
-      for(j=0;j<*n1;j++)
-	coef[j][i]=coeft[i*(*n1)+j];
-
-    
-    
-    Free(qraux);
-    Free(pivot);
-    Free(work);	
-    Free(xt);
-    Free(yt);
-    Free(coeft);
-}
-
-
-
-void inverse(double **mat1, int *n ,double **res)
-{
-  /** QR decomposition solve mat1*x=I **/
-  /** res contains the result **/
-  int i,j;
-  double **iden;
-  iden=dmatrix(*n,*n);
-  
-  for(i=0;i<*n;i++)
-    iden[i][i]=1;
-
-  qr_solve(mat1, n, iden, res);
-  
-  free_dmatrix(iden,*n);
-
-}
-	  
+}	  
 	 
 void product_matrix(double **mat1, int *n1, int *n2, double **mat2, int *m1, int *m2, double **res)
 {
@@ -662,48 +581,6 @@ void product_mat_vec(double **mat, int *n1, int *n2, double *vec, double *res)
 	sum+=mat[i][j]*vec[j];
       res[i]=sum;
     }
-}
-
-double ldet(double ** x, int *n1)
-/* Log determinant of square matrix */
-{
-  int i,j, rank, *pivot, n, p;
-  double ll, tol = 1.0E-7, *qraux, *work;
-  double *xtmp;
-    
-    
-    qraux=dvector(*n1,0);
-    pivot=ivector(*n1,0);
-    work=dvector(2*(*n1),0);
-    /** Copy the matrix by column **/
-    xtmp=dvector((*n1)*(*n1),0);
-    
-    for(i=0;i<*n1;i++)
-      for(j=0;j<*n1;j++)
-	xtmp[i*(*n1)+j]=x[j][i];
-
-    n = *n1;
-    p = *n1;
-    
-    
-    for(i = 0; i < *n1; i++)
-      pivot[i] = i+1;
-
-
-    F77_CALL(dqrdc2)(xtmp, &n, &n, &p, &tol, &rank,qraux, pivot, work);
-
-    if (rank != p)
-        error("Singular matrix in ldet\n");
-
-    for (i = 0, ll=0.0; i < rank; i++) {
-      ll += log(fabs(xtmp[i*(*n1)+i]));
-    }
-
-    Free(xtmp);
-    Free(qraux);
-    Free(pivot);
-    Free(work);
-    return ll;
 }
 
 

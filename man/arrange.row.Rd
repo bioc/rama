@@ -10,21 +10,20 @@
   function to map all the genes to their position on the slide.
 }
 \arguments{
-  \item{data}{
+  \item{data}
+  {
     A dataset containing the row indices in the first column and the
     column indices in the second column.
     The row indices should all be distinct. All indices should start at zero!
   }  
 }
 
-\value{ The ordered dataset.
-}
+\value{ The ordered dataset.}
 
-}
 \references{Robust Estimation of cDNA Microarray Intensities with Replicates
 Raphael Gottardo, Adrian E. Raftery, Ka Yee Yeung, and Roger Bumgarner
 Department of Statistics, University of Washington, Box 354322, Seattle, WA 98195-4322} 
-}
+
 \seealso{
   \code{weight.plot}
 }

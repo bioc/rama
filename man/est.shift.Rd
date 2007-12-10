@@ -4,8 +4,7 @@
 \usage{est.shift(sample1,sample2,B=1000,min.iter=0,batch=10,mcmc.obj=NULL,dye.swap=FALSE,nb.col1=NULL,all.out=TRUE,verbose=FALSE)}
 \description{
   Estimate the shift in the log transformation when fitting the
-  Hierarchical model as in bayes.rob.
-}
+  Hierarchical model as in bayes.rob.}
 \arguments{
   \item{sample1}{
     The matrix of intensity from the sample 1. Each row corresponds to a different gene.}
@@ -15,8 +14,7 @@
     The number of iteration used the MCMC algorithm.}
   \item{min.iter}{
     The length of the burn-in period in the MCMC algorithm.\code{min.iter} should be less than
-    B.
-  }
+    B.}
   \item{batch}{The thinning value to be used in the MCMC. Only every \code{batch}-th iteration will be stored.}
   \item{mcmc.obj}{An object of type \code{mcmc.shift}, as returned by
     \code{est.shift}.
@@ -68,12 +66,11 @@
   The main purpose of this function is to estimate the shift in the log
   transformation.
   Parameter estimation is carried out using Markov Chain Monte
-  Carlo. The shift is estimated with the posterior mean.
-}
+  Carlo. The shift is estimated with the posterior mean.}
 \references{Robust Estimation of cDNA Microarray Intensities with Replicates
 Raphael Gottardo, Adrian E. Raftery, Ka Yee Yeung, and Roger Bumgarner
 Department of Statistics, University of Washington, Box 354322, Seattle, WA 98195-4322} 
-}
+
 \seealso{
 \code{fit.model}
 }

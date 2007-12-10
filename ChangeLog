@@ -1,5 +1,7 @@
 RAMA Change Log File
 
+-For new changeLogs, have a look at the svn log
+
 -09/22/2005 
 Added a verbose option to display the number of iterations. 
 
