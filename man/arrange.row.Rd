@@ -10,8 +10,7 @@
   function to map all the genes to their position on the slide.
 }
 \arguments{
-  \item{data}
-  {
+  \item{data}{
     A dataset containing the row indices in the first column and the
     column indices in the second column.
     The row indices should all be distinct. All indices should start at zero!
