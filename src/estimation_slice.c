@@ -450,11 +450,11 @@ void mcmc_shift(double **data1,double **data2, int *n1, int *n2, int *nb_col1, i
 	
     }
 
-  free(mu1);
-  free(mu2);
-  free(df_new);
-  free(sum_l_w);
-  free(sum_l_w_new);
+  Free(mu1);
+  Free(mu2);
+  Free(df_new);
+  Free(sum_l_w);
+  Free(sum_l_w_new);
   
    
 }
