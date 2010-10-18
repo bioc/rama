@@ -1,7 +1,7 @@
 Package: rama
 Type: Package
 Title: Robust Analysis of MicroArrays
-Version: 1.24.0
+Version: 1.25.0
 Author: Raphael Gottardo
 Description: Robust estimation of cDNA microarray intensities with
         replicates. The package uses a Bayesian hierarchical model for
